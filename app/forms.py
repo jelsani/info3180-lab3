@@ -1,15 +1,16 @@
+from app import app
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextField, TextAreaField
 from wtforms.validators import DataRequired, Length
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 
-'''class flask_wtf.csrf.CSRFProtect(app=None)'''
+csrf = CSRFProtect(app)
 
 class ContactForm(FlaskForm):
-    name = StringField('Name',validators=[DataRequired()])
-    email = StringField('Email',validators=[DataRequired()])
-    subject = StringField('Subject',validators=[DataRequired()])
-    msg = TextAreaField('Message', [DataRequired(),Length(min=9, message=('Your message is too short.'))])
+    name = StringField('Name:',validators=[DataRequired()])
+    email = StringField('Email:',validators=[DataRequired()])
+    subject = StringField('Subject:',validators=[DataRequired()])
+    msg = TextAreaField('Message:', [DataRequired(),Length(min=9, message=('Your message is too short.'))])
     submit = SubmitField('Submit')
 '''
 <div>

@@ -2,14 +2,14 @@
 
 {% block main %}
 <div class="formwrapper">
-  <form method="POST" action="/">
+  <form method="POST"action="/">
+    {{ form.csrf_token }}
     <h1>Contact Form</h1>
-      <div class="form-field">{{ form.name.label }} {{ form.name(size=20)}}</div>
-      <div class="form-field">{{ form.email.label }} {{ form.email }}</div>
-      <div class="form-field">{{ form.subject.label }} {{ form.subject }}</div>
-      <div class="form-field">{{ form.msg.label }} {{ form.msg }}</div>
+      {{ form.name.label }} {{ form.name(size=20)}}<br>
+      {{ form.email.label }} {{ form.email }}<br>
+      {{ form.subject.label }} {{ form.subject }}<br>
+      {{ form.msg.label }} {{ form.msg }}<br>
       {{ form.submit }}
-      {{ form.csrf_token }}
   </form>
 </div>
 {% endblock %}
