@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="formwrapper">
+  <form method="POST" action="/">
+    <h1>Contact Form</h1>
+      <div class="form-field">{{ form.name.label }} {{ form.name(size=20)}}</div>
+      <div class="form-field">{{ form.email.label }} {{ form.email }}</div>
+      <div class="form-field">{{ form.subject.label }} {{ form.subject }}</div>
+      <div class="form-field">{{ form.msg.label }} {{ form.msg }}</div>
+      {{ form.submit }}
+      {{ form.csrf_token }}
+  </form>
+</div>
+{% endblock %}
