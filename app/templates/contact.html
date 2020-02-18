@@ -2,7 +2,7 @@
 
 {% block main %}
 <div class="formwrapper">
-  <form method="POST"action="/">
+  <form method="POST"action="">
     {{ form.csrf_token }}
     <h1>Contact Form</h1>
       {{ form.name.label }} {{ form.name(size=20)}}<br>

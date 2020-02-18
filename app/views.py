@@ -27,14 +27,21 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
-@app.route('/contact/', methods=['POST','GET'])
+@app.route('/contact', methods=['POST','GET'])
 def contact():
     """Render the website's contact page."""
     form = ContactForm()
-    if form.validate_on_submit():
-        flash("Your message was successfully sent.")
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            name = ContactForm.name.data
+            subject = ContactForm.subject.data
+            email = ContactForm.email.data
+            msg = ContactForm.msg.data
+            flash('Your message was successfully sent!')
         return redirect(url_for('home'))
-    return render_template('contact.html', form=form)
+    return render_template('contact.html', form=ContactForm()
+)
 
 
 ###
